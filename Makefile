@@ -36,10 +36,10 @@ t4:
 	$(SBT) "$(TEST) $(T4)"
 
 t5:
-	$(SBT) "$(TEST) $(T4)"
+	$(SBT) "$(TEST) $(T5)"
 
 t6:
-	$(SBT) "$(TEST) $(T4)"
+	$(SBT) "$(TEST) $(T6)"
 
 t7:
-	$(SBT) "$(TEST) $(T4)"
+	$(SBT) "$(TEST) $(T7)"

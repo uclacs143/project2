@@ -181,7 +181,7 @@ object CS143Utils {
     * @param allowedMemory the maximum amount of memory allowed for the input collection
     * @return true if the addition of a new record will make the table grow beyond the allowed size
     */
-  private def maybeSpill[K, V](collection: SizeTrackingAppendOnlyMap[K, V], allowedMemory: Long): Boolean = {
+  def maybeSpill[K, V](collection: SizeTrackingAppendOnlyMap[K, V], allowedMemory: Long): Boolean = {
     /* IMPLEMENT THIS METHOD */
     false
   }

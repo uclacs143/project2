@@ -1,6 +1,6 @@
 # CS 143 Spark Project : Handling User-defined Functions With Hybrid Hash Aggregation
 
-User-defined functions (UDFs) allow developers to define and exploit custom operations within expressions. Imagine, that you have a product catalog that includes photos of the product packaging. You may want to register a user-defined function `extract_text` that calls an OCR algorithm and returns the text in an image, so that you can get 'queryable' information out of the photos. You can do this in SQL easily. In SQL, you could imagine a query like this:
+User-defined functions (UDFs) allow developers to define and exploit custom operations within expressions. For instance, say that you have a product catalog that includes photos of the product packaging. You may want to register a user-defined function `extract_text` that calls an OCR algorithm and returns the text in an image, so that you can get 'queryable' information out of the photos. You can do this in SQL easily. In SQL, you could imagine a query like this:
 	
 	SELECT P.name, P.manufacturer, P.price, extract_text(P.image), 
 	  FROM Products P;
@@ -106,7 +106,7 @@ Team formation rules are posted at [class website](http://yellowstone.cs.ucla.ed
 
 # PART A
  
-To complete this part, you will need to develop a user-defined function (UDF) that provides the following functionality in an efficient and reliable manner: Tracking distinct values when (i) all the values can fit in memory and (ii) when they do not fit in memory. As you can guess, hashing will be involved. More precisely, you will work in this project to achieve the following goals:
+To complete this part, you will need to develop a user-defined function (UDF) that provides the following functionality in an efficient and reliable manner: for the two situations when (i) all the values can fit in memory and (ii) when they do not fit in memory. As you can guess, hashing will be involved. More precisely, you will work in this project to achieve the following goals:
 
 ## Assignment Goals
 
@@ -196,7 +196,7 @@ Thus, we fall back to the time-honored databases tradition of divide-and-conquer
 
 ### Task 4: Implementing `PartitionProject`
 
-This final task requires that you fill in the implementation of `PartitionProject` in `baiscOperators.scala`. All the code that you will need to write is in the `generateIterator` method. Think carefully about how you need to organize your implementation. You should *not* be buffering all the data in memory or anything similar to that.
+This final task requires that you fill in the implementation of `PartitionProject` in `basicOperators.scala`. All the code that you will need to write is in the `generateIterator` method. Think carefully about how you need to organize your implementation. You should *not* be buffering all the data in memory or anything similar to that.
 
 At this point, you should be passing ***all*** given tests.
 
@@ -252,11 +252,11 @@ Your task is first to implement the `maybeSpill` method in `CS143Utils`. The nex
 At this point the only missing part for having an hybrid-hash aggregate is to recursively aggregate records previously spilled to disk. If you have implemented the previous task correctly, to finish this task you will only have to take care of the situation in which 1) the input iterator of `generateIterator` is drained; 2) aggregate table contains aggregate values for a subset of the groups; and 3) the remaining groups sit on disk in files properly partitioned. The idea now is to clear the current aggregation table and fetch the spilled records partition by partition and aggregate them in memory. Implement `fetchSpill` and revise your implementation of `hasNext` and `next` in `generateIterator`. You can assume that the aggregate table for each partition fits in memory (what would you do if instead we remove this assumption?).
 
 
-### Assignment submission
+## Assignment submission
 
 Submission link will be created on [CCLE](https://ccle.ucla.edu/course/view/17S-COMSCI143-1), where you can submit your code by the due date. Please commit a file called `project-team.txt`, which contains the names and UIDs of the team members. Submit only the zipped repository. 
 
-### Acknowledgements
+## Acknowledgements
 Big thanks to Matteo Interlandi.
 
 **Good luck!**
