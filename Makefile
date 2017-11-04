@@ -21,7 +21,7 @@ partB:
 	$(SBT) "$(TEST) $(T5) $(T6) $(T7)"
 
 all:
-    $(SBT) "$(TEST) $(T1) $(T2) $(T3) $(T4) $(T5) $(T6) $(T7)"
+	$(SBT) "$(TEST) $(T1) $(T2) $(T3) $(T4) $(T5) $(T6) $(T7)"
 
 t1:
 	$(SBT) "$(TEST) $(T1)"
