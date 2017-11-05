@@ -182,8 +182,9 @@ object CS143Utils {
     * @return true if the addition of a new record will make the table grow beyond the allowed size
     */
   def maybeSpill[K, V](collection: SizeTrackingAppendOnlyMap[K, V], allowedMemory: Long): Boolean = {
-    /* IMPLEMENT THIS METHOD */
-    false
+    // Just a workaround, not completely correct, as not every insert triggers hash table expansion,
+    // also need to check #atGrowThreshold
+    collection.estimateSize() * 2 > allowedMemory
   }
 }
 
@@ -239,8 +240,8 @@ object CachingIteratorGenerator {
   * This function takes an input iterator containing aggregate values and returns an iterator that properly assemble the
   * output row. The result is the concatenation of the aggregate result plus the related group data.
   *
-  * @param resultExpressions the keys on which we will cache -- the inputs to the UDF
-  * @param inputSchema the udf we are caching for
+  * @param resultExpressions
+  * @param inputSchema
   * @return
   */
 object AggregateIteratorGenerator {
