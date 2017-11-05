@@ -102,7 +102,7 @@ case class SpillableAggregate(
     var currentAggregationTable = new SizeTrackingAppendOnlyMap[Row, AggregateFunction]
     var data = input
 
-    def initSpills(): DiskHashedRelation  = {
+    def initSpills(): Array[DiskPartition] = {
       /* IMPLEMENT THIS METHOD */
       null
     }
@@ -110,6 +110,14 @@ case class SpillableAggregate(
     val spills = initSpills()
 
     new Iterator[Row] {
+      /**
+        * Global object wrapping the spills into a DiskHashedRelation. This variable is
+        * set only when we are sure that the input iterator has been completely drained.
+        *
+        * @return
+        */
+      var hashedSpills: Option[Iterator[DiskPartition]] = None
+      var diskHashedRelation: Option[DiskHashedRelation] = None
       var aggregateResult: Iterator[Row] = aggregate()
 
       def hasNext() = {
@@ -137,17 +145,9 @@ case class SpillableAggregate(
         *
         * @return
         */
-      private def spillRecord(row: Row)  = {
+      private def spillRecord(group: Row, row: Row)  = {
         /* IMPLEMENT THIS METHOD */
       }
-
-      /**
-        * Global object wrapping the spills into a DiskHashedRelation. This variable is
-        * set only when we are sure that the input iterator has been completely drained.
-        *
-        * @return
-        */
-      var hashedSpills: Option[Iterator[DiskPartition]] = None
 
       /**
         * This method fetches the next records to aggregate from spilled partitions or returns false if we
