@@ -10,7 +10,7 @@ We **discourage** using VM from project 1. If you absolutely must, please increa
 Even that, using IDE with VM is tricky and TAs won't support issues related to virtual machines.
 
 
-## `git` and GitHub
+## Git and GitHub
 
 `git` is a *version control* system, helping you track different versions of your code, synchronize them across different machines, and collaborate with others. [GitHub](https://github.com) is a site which supports this system, hosting it as a service.
 
@@ -38,9 +38,9 @@ The first time you run this command, it should take a while -- `sbt` will downlo
 
 If you use IntelliJ IDEA (Community version is enough), please make sure you have **Scala and SBT plugins installed** in IntelliJ IDEA. Import the whole project as an SBT project and keep other settings in default should work.
 
-If you try to run your code within IntelliJ, please **disable** the 'Make' command before actually running the program. Code should be built from command line only ('make compile').
+If you try to run your code within IntelliJ, please **disable** the 'Make' command before actually running the program. Code should be built from command line only (`make compile`).
 
-If build fails for unknown reasons, be sure to try 'make clean' and then do a 'make compile' again.
+If build fails for unknown reasons, be sure to try `make clean` and then do a `make compile` again.
 
 ## Searching files
 
