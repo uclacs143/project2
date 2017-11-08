@@ -155,11 +155,11 @@ No need to spill to disk at this point.
 
 ## Hybrid hash aggregation
 
-Please make sure you have finished Task #1 to #5 and passed all the tests mentioned before starting to work on extra credit tasks.
+**Please make sure you have finished Task #1 to #5 and passed all the tests mentioned** before starting to work on extra credit tasks.
 
 ### [Extra Credit] Task #6: Make the aggregate table spill to disk
 
-Your task is first to implement the `maybeSpill` method in `CS143Utils`. The next step is to revise your implementation of `generateIterator` in `SpillableAggregate.scala` by making the current aggregation table check if it can safely add a new record without triggering the spilling to disk. If the record cannot be added to the aggregation table, it will be spilled to disk. To implement the above logic, you will have to fill up the methods `initSpills` and `spillRecord`, and properly modify your implementation of `aggregate`. In `initSpills` remember to set blockSize to 0, otherwise spilled records will stay in memory and not actually spill to disk!
+Your task is first to take a look at the `maybeSpill` method in `CS143Utils` (We have already filled this method for you). The next step is to revise your implementation of `generateIterator` in `SpillableAggregate.scala` by making the current aggregation table check if it can safely add a new record without triggering the spilling to disk. If the record cannot be added to the aggregation table, it will be spilled to disk. To implement the above logic, you will have to fill up the methods `initSpills` and `spillRecord`, and properly modify your implementation of `aggregate`. In `initSpills` remember to set blockSize to 0, otherwise spilled records will stay in memory and not actually spill to disk!
 
 ### [Extra Credit] Task #7: Recursive Aggregation
 
