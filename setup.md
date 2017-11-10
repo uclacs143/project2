@@ -36,7 +36,7 @@ The first time you run this command, it should take a while -- `sbt` will downlo
 
 ## Import Project in IntelliJ IDEA
 
-If you use IntelliJ IDEA (Community version is enough), please make sure you have **Scala and SBT plugins installed** in IntelliJ IDEA. Import the whole project as an SBT project and keep other settings in default should work.
+If you use IntelliJ IDEA (Community version is enough), please make sure you have **Scala and SBT plugins installed** in IntelliJ IDEA. Import the whole project as **external SBT project** and keep other settings in default should work.
 
 If you try to run your code within IntelliJ, please **disable** the 'Make' command before actually running the program. Code should be built from command line only (`make compile`).
 
