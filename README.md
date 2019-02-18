@@ -1,6 +1,6 @@
-# Fall 2017 CS 143 Project 2
+# Winter 2019 CS 143 Project 2
 
-This project is split into two parts. In Part A, you'll implement the caching mechanism of User-Defined Functions. In Part B, you'll implement the hash-based aggregation mechanism. Part A has 4 tasks and Part B has 3 tasks (the last 2 are extra credits).
+This project is split into two parts. In Part A, you'll implement the caching mechanism of User-Defined Functions. In Part B, you'll implement the hash-based aggregation mechanism. Part A has 4 tasks and Part B has 1 task.
 
 For all tasks, you will need to implement the required functionalities on Apache Spark, a leading distributed computing framework, using Scala programming language. The project is based on Spark version: 1.3.0-SNAPSHOT, thus some functionalities may not conform to the most recent Spark documentation.
 
@@ -124,8 +124,6 @@ In order to run our tests, we have provided a simple Makefile. In order to run t
 ## Assignment Goals
 
 1. *Implement hash-based aggregation*
-2. *Implement spillable data strucuture*
-3. *Combine the above two tecniques to implement hybrid hashing aggregation*
 
 ## Project Framework
 
@@ -155,20 +153,11 @@ No need to spill to disk at this point.
 
 ## Hybrid hash aggregation
 
-**Please make sure you have finished Task #1 to #5 and passed all the tests mentioned** before starting to work on extra credit tasks.
-
-### [Extra Credit] Task #6: Make the aggregate table spill to disk
-
-Your task is first to take a look at the `maybeSpill` method in `CS143Utils` (We have already filled this method for you). The next step is to revise your implementation of `generateIterator` in `SpillableAggregate.scala` by making the current aggregation table check if it can safely add a new record without triggering the spilling to disk. If the record cannot be added to the aggregation table, it will be spilled to disk. To implement the above logic, you will have to fill up the methods `initSpills` and `spillRecord`, and properly modify your implementation of `aggregate`. In `initSpills` remember to set blockSize to 0, otherwise spilled records will stay in memory and not actually spill to disk!
-
-### [Extra Credit] Task #7: Recursive Aggregation
-
-At this point the only missing part for having an hybrid-hash aggregate is to recursively aggregate records previously spilled to disk. If you have implemented the previous task correctly, to finish this task you will only have to take care of the situation in which 1) the input iterator of `generateIterator` is drained; 2) aggregate table contains aggregate values for a subset of the groups; and 3) the remaining groups sit on disk in files properly partitioned. The idea now is to clear the current aggregation table and fetch the spilled records partition by partition and aggregate them in memory. Implement `fetchSpill` and revise your implementation of `hasNext` and `next` in `generateIterator`. You can assume that the aggregate table for each partition fits in memory (what would you do if instead we remove this assumption?).
-
+**Please make sure you have finished Task #1 to #5 and passed all the tests mentioned**. 
 
 # Assignment Submission
 
-Submission link will be created on [CCLE](https://ccle.ucla.edu/course/view/17F-COMSCI143-2), where you can submit your code by the due date. In project root directory, please create the `team.txt` file which contains the UID(s) of every member of your team.
+Submission link will be created on CCLE on week 10, where you can submit your code by the due date. In project root directory, please create the `team.txt` file which contains the UID(s) of every member of your team.
 
 After that, please run following commands to create the submission zip archive.
 
