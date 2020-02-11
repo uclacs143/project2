@@ -1,4 +1,4 @@
-# Winter 2019 CS 143 Project 2
+# Winter 2020 CS 143 Project 2
 
 This project is split into two parts. In Part A, you'll implement the caching mechanism of User-Defined Functions. In Part B, you'll implement the hash-based aggregation mechanism. Part A has 4 tasks and Part B has 1 task.
 
@@ -157,7 +157,7 @@ No need to spill to disk at this point.
 
 # Assignment Submission
 
-Submission link will be created on CCLE on week 10, where you can submit your code by the due date. In project root directory, please create the `team.txt` file which contains the UID(s) of every member of your team.
+Please make your submission via the Submission link on CCLE. In project root directory, please create the `team.txt` file which contains the UID(s) of every member of your team.
 
 After that, please run following commands to create the submission zip archive.
 
@@ -165,6 +165,8 @@ After that, please run following commands to create the submission zip archive.
     $ ./package.sh
 
 Please **only submit** the script-created `project2.zip` file to CCLE.
+
+Note: DO NOT manually pack any extra files into your `project2.zip` file!!! As you can observe from the `package.sh` script, we will only accept files created under the `sql/core/src/main/scala/org/apache/spark/sql/execution` directory. 
 
 
 # Acknowledgements
