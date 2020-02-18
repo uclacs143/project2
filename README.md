@@ -115,7 +115,7 @@ At this point, you should be passing ***all*** given tests.
 
 ## Testing
 
-We have provided you some sample tests in `DiskPartitionSuite.scala`, `DiskHasedRelationSuite.scala`, `CS143UtilsSuite.scala` and `ProjectSuite.scala` for Part A and in `InMemoryAggregateSuite`, `SpillableAggregationSuite` and `RecursiveAggregationSuite` for Part B. These tests can guide you as you complete this project. However, keep in mind that they are *not* comprehensive, and you are well advised to write your own tests to catch bugs. Hopefully, you can use these tests as models to generate your own tests. 
+We have provided you some sample tests in `DiskPartitionSuite.scala`, `DiskHasedRelationSuite.scala`, `CS143UtilsSuite.scala` and `ProjectSuite.scala` for Part A and in `InMemoryAggregateSuite` for Part B. These tests can guide you as you complete this project. However, keep in mind that they are *not* comprehensive, and you are well advised to write your own tests to catch bugs. Hopefully, you can use these tests as models to generate your own tests. 
 
 In order to run our tests, we have provided a simple Makefile. In order to run the tests for task 1, run `make t1`. Correspondingly for task, run `make t2`, and the same for all other tests. `make partA` will run all the tests for Part A and `make all` will run all the tests. 
 
